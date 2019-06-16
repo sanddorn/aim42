@@ -1,10 +1,12 @@
+import org.asciidoctor.gradle.AsciidoctorTask
+
 // gradle build script for the aim42 documentation
 //
 // free software - without guarantee, use at your own risk
 // ========================================================
 
-println """compiling with Java ${System.getProperty("java.version")}"""
-println "building project version " + project.project_version
+//println """compiling with Java ${System.getProperty("java.version")}"""
+//println "building project version " + project.project_version
 
 
 buildscript {
@@ -27,19 +29,31 @@ buildscript {
         classpath ( group: 'org.asciidoctor',
                     name: 'asciidoctor-gradle-plugin',
                     version: '1.5.6')
+        classpath 'org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.16'
     }
 }
 
+plugins {
+    id 'org.asciidoctor.convert' version '1.5.6'
+}
+
+
+asciidoctorj {
+    version = '1.5.6'
+}
 
 ext {
     srcDir  = "$projectDir/src/main"
     targetDir = "$buildDir/docs"
     currentDate = new Date().format("MMM d. yyyy")
+    currentDateEncoded = currentDate.replace(" ", "")
 }
 
 
 // =========== asciidoctor stuff ===============
 apply plugin: 'org.asciidoctor.convert'
+apply plugin: 'java'
+
 
 asciidoctor {
     outputDir = file( targetDir )
@@ -73,6 +87,31 @@ asciidoctor {
     }
 }
 
+task pdf (type: AsciidoctorTask) {
+    outputDir file( targetDir )
+    sourceDir file("$srcDir/asciidoc")
+    sources  { include "index.adoc" }
+     backends  'pdf'
+    attributes = [
+        separateOutputDirs: false ,
+        imagesdir: "$srcDir/resources/images" ,
+        doctype: 'book' ,
+        icons: 'font' ,
+        toc: 'left' ,
+        sectlink: true ,
+        sectanchors: true ,
+        numbered: true ,
+        'source-highlighter' : 'coderay' ,
+        'coderay-css' : 'class' ,
+        stylesheet: 'aim42.css' ,
+        stylesdir: "$srcDir/resources/css/" ,
+        'pdf-stylesdir' : "$srcDir/resources/css/" ,
+        'pdf-style' : 'aim42' ,
+        version: project.project_version ,
+        'currentDate' : "$currentDateEncoded",
+        'allow-uri-read': true
+    ]
+}
 
 defaultTasks 'aim42'
 

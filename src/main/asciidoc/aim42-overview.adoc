@@ -4,7 +4,7 @@ aim42 organizes software improvement in three major
 phases (<<Analyze>>, <<Evaluate>> and <<Improve>>),
 build around some <<Crosscutting, crosscutting>> activities.
 
-image::aim42-phases.png["aim42 phases",  50%, title="Three Phases of aim42"]
+image::aim42-phases.png["aim42 phases",  50%, pdfwidth=50% title="Three Phases of aim42"]
 
 
 [cols="3"]

@@ -24,6 +24,7 @@ aim42 seamlessly integrates with your day-to-day development work.
 
 Authored by the aim42 community, lead by Dr. Gernot Starke <gernot.starke@innoq.com>
 
+ifdef::backend-html5[]
 image:https://img.shields.io/badge/Version-{version}-green.svg[{version}]
 image:https://img.shields.io/badge/Date-{currentDate}-green.svg[/{currentDate}]
 image:https://img.shields.io/travis/aim42/aim42/master.svg[link="https://travis-ci.org/aim42/aim42",window="_blank", alt="build-status:unknown"]
@@ -31,6 +32,21 @@ image:https://img.shields.io/github/issues/aim42/aim42.svg[link="https://github.
 image:https://img.shields.io/github/stars/aim42/aim42.svg[link="https://github.com/aim42/aim42",window="_blank", alt="github-stars"]
 image:https://img.shields.io/github/contributors/aim42/aim42.svg[link="https://github.com/aim42/aim42",window="_blank", alt="github-contributors"]
 image:https://img.shields.io/twitter/follow/gernotstarke.svg?style=social&label=Followers[link="https://twitter.com/gernotstarke",window="_blank", alt="Twitter follower button"]
+endif::[]
+ifdef::backend-pdf[]
+
+image:https://img.shields.io/badge/Version-{version}-green.png[{version}]
+//
+image:https://img.shields.io/badge/Date-{currentDate}-green.png[/{currentDate}]
+//
+image:https://img.shields.io/travis/aim42/aim42/master.png[link="https://travis-ci.org/aim42/aim42",window="_blank", alt="build-status:unknown"]
+//
+image:https://img.shields.io/github/issues/aim42/aim42.png[link="https://github.com/aim42/aim42/issues",window="_blank", alt="nr-of-issues:unknown"]
+image:https://img.shields.io/github/stars/aim42/aim42.png[link="https://github.com/aim42/aim42",window="_blank", alt="github-stars"]
+image:https://img.shields.io/github/contributors/aim42/aim42.png[link="https://github.com/aim42/aim42",window="_blank", alt="github-contributors"]
+image:https://img.shields.io/twitter/follow/gernotstarke.png?style=social&label=Followers[link="https://twitter.com/gernotstarke",window="_blank", alt="Twitter follower button"]
+endif::[]
+
 
 === About this documentation
 This document serves as the _method reference_ - it collects practices and patterns.
